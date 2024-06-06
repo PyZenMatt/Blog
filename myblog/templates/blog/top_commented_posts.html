@@ -1,0 +1,45 @@
+
+
+{% block content %}
+
+{% block title %}<title>All Posts</title>{% endblock title %}
+<div class="global indent">
+    <div class="container padBot">
+        <div class="row">
+            <article class="col-lg-7 col-md-8 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 blogBox">
+                <h3>Top Posts</h3>
+                 
+                  <div class="thumb-pad6 clearfix">
+                    {% for post in top_commented_posts %} 
+
+                        <div class="thumbnail">
+                            <div class="badgeBox">
+                                <div class="extra-wrap">
+                                    <a href="{% url 'post_detail' post.pk %}" class="tl">{{ post.title }}</a><br>
+                                    <p class="lnk1">Posted by <a href="#">Admin</a> on {{ post.created_at|date:"F j, Y" }}</p>
+                                    <p class="lnk2"><a href="#">{{ post.comments.count }} Comment(s)</a><em></em></p>
+                                </div>
+                            </div>
+                            <figure><img src="{{ 'https://via.placeholder.com/150' }}" alt=""></figure>
+                            <div class="caption">
+                                <p>{{ post.content|truncatewords:30 }}</p>
+                                <a href="{% url 'post_detail' post.pk %}" class="btn-default btn2"><span>read more</span><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        
+                    </div>                                       
+                
+            </article>
+            
+        </div>
+    </div>
+   
+    
+   
+</div>
+
+{% endblock content %}
+
+    
+

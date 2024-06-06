@@ -1,0 +1,59 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% include "blog/navbar.html" %}
+
+{% block title %}<title>Contattami</title>{% endblock title %}
+            
+<section class="formBox">
+    <div class="container">
+    <div class="row">
+        
+        <article class="col-lg-8 col-md-8 col-sm-8 touch-box">
+            <h3>Contact form</h3>
+            <form id="contact-form">
+                <div class="success-message">Contact form submitted.</div>
+                <div class="holder">
+                    <div class="form-div-1 clearfix">
+                        <label class="name">
+                            <input type="text" placeholder="Name:" data-constraints="@Required @JustLetters" />
+                            <span class="empty-message">*This field is required.</span>
+                            <span class="error-message">*This is not a valid name.</span>
+                        </label>
+                    </div>
+                    <div class="form-div-2 clearfix">
+                        <label class="email">
+                            <input type="text" placeholder="E-mail:" data-constraints="@Required @Email" />
+                            <span class="empty-message">*This field is required.</span>
+                            <span class="error-message">*This is not a valid email.</span>
+                        </label>
+                    </div>
+                    <div class="form-div-3 clearfix">
+                        <label class="phone notRequired">
+                            <input type="text" placeholder="Phone:" data-constraints="@JustNumbers"/>
+                            <span class="empty-message">*This field is required.</span>
+                            <span class="error-message">*This is not a valid phone.</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-div-4 clearfix">
+                    <label class="message">
+                        <textarea placeholder="Message:" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
+                        <span class="empty-message">*This field is required.</span>
+                        <span class="error-message">*The message is too short.</span>
+                    </label>
+                </div>
+                <div class="btns">
+                    <a href="#" data-type="submit" class="btn-default btn2"><span>submit</span><i class="fa fa-arrow-circle-right"></i></a>
+                </div>  
+            </form>
+        </article>
+    </div>
+    </div>
+</section>
+</div>
+</div>
+</div>
+
+{% include "blog/footer.html" %}
+
+{% endblock content%}

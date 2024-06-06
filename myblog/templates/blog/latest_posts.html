@@ -1,0 +1,44 @@
+
+{% block content %}
+
+{% block title %}<title>Latest Posts</title>{% endblock title %}
+{% comment %} <div class="global">
+    <div class="container">
+                <section class="professional-box">
+                        <h2>Events</h2>
+                        <div class="row">
+                            {% for post in latest_posts %}
+                                <article class="col-lg-3 col-md-3 col-sm-3">
+                                    <p class="title">{{ post.title|truncatewords:10 }}</p>
+                                    <time datetime="{{ post.created_at|date:"Y-m-d" }}">{{ post.created_at|timesince }} ago</time>
+                                    <p>{{ post.content|truncatewords:25 }}</p>
+                                    <a href="{% url 'post_detail' post.pk %}" class="btn-default btn2">
+                                    <span>read more</span><i class="fa fa-arrow-circle-right"></i>
+                                    </a>
+                                </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section> {% endcomment %}
+
+                
+                    <section class="proffesional-box">
+                        <div class="container">
+                            <h2>Ultimi Posts</h2>
+                            <div class="row">
+                                {% for post in latest_posts %}
+                                <article class="col-lg-3 col-md-3 col-sm-3">
+                                    <p class="title">{{ post.title|truncatewords:10 }}</p></p>
+                                    <figure><img src="https://via.placeholder.com/150" alt=""></figure>
+                                    <time datetime={{ post.created_at|date:"Y-m-d" }}">{{ post.created_at|timesince }}</time>
+                                    <p>{{ post.content|safe|truncatewords:25 }}</p>
+                                    <p class="decription">Aenean nonummy hendrerit mauris Phasellus porta. Fusce suscipit varius mi. Cum socii. Aenean auctor wrcinec sit amolaluc tus orem dictum mad mmm dictum magna. Sed oreet alim leo. Ut tellus dolor dapibuet elemrsus eleifend elit. Aenean auctor wisi et.</p>
+                                    <a href="{% url 'post_detail' post.pk %}" class="btn-default btn2"><span>read more</span><i class="fa fa-arrow-circle-right"></i></a>
+                                </article>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+              
+
+{% endblock content %}

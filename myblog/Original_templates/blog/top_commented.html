@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<body>
+    <div class="container mt-4">
+        <h1>Top Commented Posts</h1>
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                {% for post in top_commented_posts %}
+                <li class="list-group-item">{{ post.title }} ({{ post.num_comments }} comments)</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+{% endblock content %}

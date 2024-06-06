@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<body>
+    <div class="container mt-4">
+        <h1>All Posts</h1>
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                {% for post in all_posts %}
+                <li class="list-group-item">{{ post.title }}</li>
+                <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary btn-sm">Read More</a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    
+
+{% endblock content %}

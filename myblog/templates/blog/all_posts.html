@@ -1,0 +1,69 @@
+{% extends "blog/base.html" %}
+
+
+{% block content %}
+{% include "blog/navbar.html" %}
+{% block title %}<title>All Posts</title>{% endblock title %}
+<div class="global indent">
+    <div class="container padBot">
+        <div class="row">
+            <article class="col-lg-7 col-md-8 col-sm-8 blogBox">
+                <h3>Blog</h3>
+                 
+                  <div class="thumb-pad6 clearfix">
+                    {% for post in all_posts %} 
+
+                        <div class="thumbnail">
+                            <div class="badgeBox">
+                                <div class="extra-wrap">
+                                    <a href="{% url 'post_detail' post.pk %}" class="tl">{{ post.title }}</a><br>
+                                    <p class="lnk1">Posted by <a href="#">Admin</a> on {{ post.created_at|date:"F j, Y" }}</p>
+                                    <p class="lnk2"><a href="#">{{ post.comments.count }} Comment(s)</a><em></em></p>
+                                </div>
+                            </div>
+                            <figure><img src="{{ 'https://via.placeholder.com/150' }}" alt=""></figure>
+                            <div class="caption">
+                                <p>{{ post.content|truncatewords:30 }}</p>
+                                <a href="{% url 'post_detail' post.pk %}" class="btn-default btn2"><span>read more</span><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        
+                    </div>                                       
+                
+            </article>
+            <article class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1">
+                <h3>Categories</h3>
+                <ul class="list1-1">
+                    <li><a href="#">Lorem ipsum dolor sit adipiscing</a></li>
+                    <li><a href="#">Sus ut felis orci sed triste</a></li>
+                    <li><a href="#">Tristique diama phare tralibero</a></li>
+                    <li><a href="#">Fermentum lorem ipsum dolor sit</a></li>
+                    <li><a href="#">Adipiscing elitsus ut felis orci</a></li>
+                    <li><a href="#">Tristique diama phare tralibero</a></li>
+                    <li><a href="#">Fermentum lorem ipsum dolor</a></li>
+                </ul>
+                <h3>Archives</h3>
+                <ul class="list1-1">
+                    <li><a href="#">June 2013</a></li>
+                    <li><a href="#">May 2013</a></li>
+                    <li><a href="#">April 2013</a></li>
+                    <li><a href="#">March 2013</a></li>
+                    <li><a href="#">February 2013</a></li>
+                    <li><a href="#">January 2013</a></li>
+                    <li><a href="#">December 2012</a></li>
+                    <li><a href="#">November 2012</a></li>
+                    <li><a href="#">October 2012</a></li>
+                </ul>    
+            </article>
+        </div>
+    </div>
+    {% include 'blog/footer.html' %}
+    
+   
+</div>
+
+{% endblock content %}
+
+    
+
